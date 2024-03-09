@@ -10,8 +10,8 @@
 		/>
 		<button @click="resetOtp" style="margin-top: 10px;">Reset</button>
 
-		<h4>Group</h4>
-		<OneTimePassword otpMode="group"/>
+		<h4>Group & text</h4>
+		<OneTimePassword otpMode="group" inputType="text"/>
 
 		<h4>Divided error</h4>
 		<OneTimePassword :isValid="false">
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import {OneTimePassword} from '@altgr4m/vue3-one-time-password'
+import OneTimePassword from '@altgr4m/vue3-one-time-password'
 import "@altgr4m/vue3-one-time-password/style.css"
 import {ref} from "vue";
 
