@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.4.19",
-    "@altgr4m/vue3-one-time-password": "^1.0"
+    "@altgr4m/vue3-one-time-password": "^1.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
