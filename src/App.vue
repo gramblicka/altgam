@@ -1,38 +1,65 @@
-<script setup lang="ts">
-import {OneTimePassword} from '@altgram/vue3-one-time-password'
-import "@altgram/vue3-one-time-password/style.css"
-</script>
-
 <template>
 	<div>
 
-		<h4>Divided</h4>
-		<OneTimePassword/>
+		<h4>Divided with handlers</h4>
+		<OneTimePassword
+				@completed="onCompleteHandler"
+				@changed="onChangedHandler"
+				@paste="onPasteHandler"
+				ref="oneTimePassword"
+		/>
+		<button @click="resetOtp" style="margin-top: 10px;">Reset</button>
 
 		<h4>Group</h4>
-		<OneTimePassword otp-mode="group">
-			<p>Error message</p>
+		<OneTimePassword otpMode="group"/>
+
+		<h4>Divided error</h4>
+		<OneTimePassword :isValid="false">
+			<p class="wrapper-error-class">Error message</p>
 		</OneTimePassword>
 
+		<h4>Active input styling</h4>
+		<OneTimePassword customActiveInputClass="custom-input-active" />
 
-		<!--		customActiveInputClass,-->
-		<!--		customInputClass,-->
-		<!--		customWrapperClass,-->
-		<!--		reverseDirection-->
-		<!--		borderRadius-->
-		<!--		inputCount-->
-		<!--		otpMode-->
-		<!--		placeholder-->
-		<!--		inputsGapWidth-->
-		<!--		isDisabled-->
-		<!--		isValid-->
-		<!--		isAutoFocus-->
-		<!--		inputType-->
-		<!--		customWrapperValidClass,-->
-		<!--		customWrapperErrorClass,-->
+		<h4>Divided password input <br/> four digits without placeholder</h4>
+		<OneTimePassword otpMode="divided" inputType="password" placeholder="" :inputCount="4" :hideCursor="true"/>
 	</div>
 </template>
 
-<style scoped>
+<script setup lang="ts">
+import {OneTimePassword} from '@altgram/vue3-one-time-password'
+import "@altgram/vue3-one-time-password/style.css"
+import {ref} from "vue";
 
+const oneTimePassword = ref(null);
+const resetOtp = () => {
+	oneTimePassword.value.reset()
+}
+const onCompleteHandler = (tokenValue: string) => {
+	console.log('onCompleteHandler');
+	console.log(tokenValue);
+}
+
+const onChangedHandler = (tokenValue: string) => {
+	console.log('onChangedHandler');
+	console.log(tokenValue);
+}
+
+const onPasteHandler = (tokenValue: string) => {
+	console.log('onPasteHandler');
+	console.log(tokenValue);
+}
+</script>
+
+<style>
+.otp-app .wrapper-error-class {
+	color: red;
+	line-height: 1rem;
+	font-size: 12px;
+	text-align: left;
+}
+.otp-app .custom-input-active {
+	text-align: center;
+	border: 1px solid green;
+}
 </style>
