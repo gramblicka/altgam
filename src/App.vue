@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<form>
 
 		<h4>Divided with handlers</h4>
 		<OneTimePassword
@@ -23,7 +23,8 @@
 
 		<h4>Divided password input <br/> four digits without placeholder</h4>
 		<OneTimePassword otpMode="divided" inputType="password" placeholder="" :inputCount="4" :hideCursor="true"/>
-	</div>
+
+	</form>
 </template>
 
 <script setup lang="ts">
