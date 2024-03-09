@@ -28,8 +28,8 @@
 </template>
 
 <script setup lang="ts">
-import {OneTimePassword} from '@altgram/vue3-one-time-password'
-import "@altgram/vue3-one-time-password/style.css"
+import {OneTimePassword} from '@altgr4m/vue3-one-time-password'
+import "@altgr4m/vue3-one-time-password/style.css"
 import {ref} from "vue";
 
 const oneTimePassword = ref(null);
