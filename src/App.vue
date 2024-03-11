@@ -11,7 +11,7 @@
 		<button @click="resetOtp" style="margin-top: 10px;">Reset</button>
 
 		<h4>Group & text</h4>
-		<OneTimePassword otpMode="group" inputType="text"/>
+		<OneTimePassword otpMode="group" inputType="text" inputsGapWidth="0" style="width: 100%"/>
 
 		<h4>Divided error</h4>
 		<OneTimePassword :isValid="false">
